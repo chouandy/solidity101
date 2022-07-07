@@ -4,4 +4,5 @@
   - VSCode Extensions
     - [solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
   - [Hardhat](https://hardhat.org/)
-- [ ] New and deploy a ERC20 token contract
+- [x] New and deploy a ERC20 token contract
+- [ ] New and deploy vault contract
