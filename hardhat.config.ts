@@ -34,6 +34,10 @@ const config: HardhatUserConfig = {
         path: "m/44'/60'/0'/0",
         initialIndex: 0,
       },
+      forking: {
+        url: 'https://mainnet.infura.io/v3/fdea71e51fa145c4a6d6c2e94670c04f',
+        blockNumber: 15000000,
+      },
     },
     'mainnet-beta': {
       url: process.env.MAINNET_BETA_HTTP_RPC_URL,
