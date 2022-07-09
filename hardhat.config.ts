@@ -39,11 +39,13 @@ const config: HardhatUserConfig = {
         blockNumber: 15000000,
       },
     },
-    'mainnet-beta': {
-      url: process.env.MAINNET_BETA_HTTP_RPC_URL,
-      accounts: process.env.MAINNET_BETA_DEPLOYER_PRIVATE_KEY ? [process.env.MAINNET_BETA_DEPLOYER_PRIVATE_KEY] : [],
-      gas: 6000000,
+    ropsten: {
+      url: 'https://ropsten.infura.io/v3/fdea71e51fa145c4a6d6c2e94670c04f',
+      accounts: process.env.TESTNET_DEPLOYER_PRIVATE_KEY ? [process.env.TESTNET_DEPLOYER_PRIVATE_KEY] : [],
     },
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY!,
   },
 };
 

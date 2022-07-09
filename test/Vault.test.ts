@@ -66,9 +66,9 @@ describe('Vault', function () {
     const amount = ethers.utils.parseEther('1');
 
     await token.connect(user).approve(vault.address, amount);
-    const tx = await vault.connect(user).deposit(token.address, amount);
-    const receipt = await tx.wait();
-    expect(receipt).to.emit(vault, 'Deposit').withArgs(user.address, token.address, amount);
+    await expect(vault.connect(user).deposit(token.address, amount))
+      .to.emit(vault, 'Deposit')
+      .withArgs(user.address, token.address, amount);
 
     const userTokenBalanceAfter = await token.balanceOf(user.address);
     expect(userTokenBalance.sub(userTokenBalanceAfter)).to.eq(amount);
@@ -80,9 +80,9 @@ describe('Vault', function () {
   it('withdraw erc20 token - success', async function () {
     const amount = ethers.utils.parseEther('0.5');
 
-    const tx = await vault.connect(user).withdraw(token.address, amount);
-    const receipt = await tx.wait();
-    expect(receipt).to.emit(vault, 'Withdrawal').withArgs(user.address, token.address, amount);
+    await expect(vault.connect(user).withdraw(token.address, amount))
+      .to.emit(vault, 'Withdrawal')
+      .withArgs(user.address, token.address, amount);
 
     const userTokenBalanceAfter = await token.balanceOf(user.address);
     expect(userTokenBalanceAfter.sub(userTokenBalance)).to.eq(amount);
